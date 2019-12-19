@@ -1,6 +1,5 @@
 package de.mschneid.aoc3;
 
-import de.mschneid.aoc2.AdventOfCode2;
 import de.mschneid.util.FileReader;
 
 import java.util.Arrays;

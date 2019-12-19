@@ -1,7 +1,6 @@
 package de.mschneid.aoc3;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -18,20 +17,16 @@ public class AdventOfCode3 {
 
                 switch (direction) {
                     case "R":
-                        int x = currentCoordinate.getX() + 1;
-                        currentCoordinate.setX(x);
+                        currentCoordinate.moveRight();
                         break;
                     case "L":
-                        x = currentCoordinate.getX() - 1;
-                        currentCoordinate.setX(x);
+                        currentCoordinate.moveLeft();
                         break;
                     case "U":
-                        int y = currentCoordinate.getY() + 1;
-                        currentCoordinate.setY(y);
+                        currentCoordinate.moveUp();
                         break;
                     case "D":
-                        y = currentCoordinate.getY() - 1;
-                        currentCoordinate.setY(y);
+                        currentCoordinate.moveDown();
                         break;
                     default:
                         System.out.println("ERROR: unknown direction");

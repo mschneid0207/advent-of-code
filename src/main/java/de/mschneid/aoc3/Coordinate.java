@@ -15,4 +15,20 @@ public class Coordinate {
         public String getCoordinateKey() {
                 return "x" + this.x + "y" + this.y;
         }
+
+        public void moveRight() {
+                this.x++;
+        }
+
+        public void moveLeft() {
+                this.x--;
+        }
+
+        public void moveUp() {
+                this.y++;
+        }
+
+        public void moveDown() {
+                this.y--;
+        }
 }
