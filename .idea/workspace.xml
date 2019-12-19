@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee67fc72-d212-4936-9770-a0e70d26f0b4" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1VAadEYPr03HRYSe1kYeLgX8gSg" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="flattenModules" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="de.mschneid.aoc3" />
+      <recent name="de.mschneid.aoc2" />
+      <recent name="de.mschneid.aoc1" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.mschneid.aoc3" />
+      <recent name="de.mschneid.aoc2" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/de/mschneid/aoc1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Runner (2)">
+    <configuration name="Runner (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.mschneid.aoc2.Runner" />
+      <module name="advent-of-code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.mschneid.aoc2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Runner (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.mschneid.aoc3.Runner" />
+      <module name="advent-of-code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.mschneid.aoc3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventOfCode3Test.test_min_distance_by_closest_way" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="advent-of-code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.mschneid.aoc3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.mschneid.aoc3" />
+      <option name="MAIN_CLASS_NAME" value="de.mschneid.aoc3.AdventOfCode3Test" />
+      <option name="METHOD_NAME" value="test_min_distance_by_closest_way" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventOfCode3Test.test_min_distance_by_manahatten_calc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="advent-of-code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.mschneid.aoc3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.mschneid.aoc3" />
+      <option name="MAIN_CLASS_NAME" value="de.mschneid.aoc3.AdventOfCode3Test" />
+      <option name="METHOD_NAME" value="test_min_distance_by_manahatten_calc" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventOfCode3Test.test_prepare_coordinates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="advent-of-code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.mschneid.aoc3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.mschneid.aoc3" />
+      <option name="MAIN_CLASS_NAME" value="de.mschneid.aoc3.AdventOfCode3Test" />
+      <option name="METHOD_NAME" value="test_prepare_coordinates" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Runner (2)" />
+        <item itemvalue="JUnit.AdventOfCode3Test.test_min_distance_by_closest_way" />
+        <item itemvalue="JUnit.AdventOfCode3Test.test_min_distance_by_manahatten_calc" />
+        <item itemvalue="JUnit.AdventOfCode3Test.test_prepare_coordinates" />
+        <item itemvalue="Application.Runner (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+    <option name="showServicesTree" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee67fc72-d212-4936-9770-a0e70d26f0b4" name="Default Changelist" comment="" />
+      <created>1576698438204</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576698438204</updated>
+      <workItem from="1576698444022" duration="20083000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="99" key="#Project_Structure" timestamp="1576700553995">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="320" y="99" key="#Project_Structure/0.23.1440.822@0.23.1440.822" timestamp="1576700553995" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1576750168990">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1576699501775" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1576750168990" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1576750168989">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1576699501774" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1576750168989" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1576750168986">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1576699501774" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1576750168986" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1576750168989">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1576699501775" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.822@0.23.1440.822" timestamp="1576750168989" />
+    <state width="1398" height="263" key="GridCell.Tab.1.bottom" timestamp="1576734841245">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="263" key="GridCell.Tab.1.bottom/0.23.1440.822@0.23.1440.822" timestamp="1576734841245" />
+    <state width="1398" height="263" key="GridCell.Tab.1.center" timestamp="1576734841244">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="263" key="GridCell.Tab.1.center/0.23.1440.822@0.23.1440.822" timestamp="1576734841244" />
+    <state width="1398" height="263" key="GridCell.Tab.1.left" timestamp="1576734841240">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="263" key="GridCell.Tab.1.left/0.23.1440.822@0.23.1440.822" timestamp="1576734841240" />
+    <state width="1398" height="263" key="GridCell.Tab.1.right" timestamp="1576734841244">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state width="1398" height="263" key="GridCell.Tab.1.right/0.23.1440.822@0.23.1440.822" timestamp="1576734841244" />
+    <state x="229" y="23" width="1024" height="822" key="SettingsEditor" timestamp="1576700541918">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="229" y="23" width="1024" height="822" key="SettingsEditor/0.23.1440.822@0.23.1440.822" timestamp="1576700541918" />
+    <state x="499" y="168" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1576734514271">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="499" y="168" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.23.1440.822@0.23.1440.822" timestamp="1576734514271" />
+    <state x="386" y="196" width="667" height="476" key="find.popup" timestamp="1576707551986">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="386" y="196" width="667" height="476" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1576707551986" />
+    <state x="385" y="169" key="search.everywhere.popup" timestamp="1576748262786">
+      <screen x="0" y="23" width="1440" height="822" />
+    </state>
+    <state x="385" y="169" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1576748262786" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mschneid/aoc1/AdventOfCode1.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mschneid/aoc2/AdventOfCode2.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mschneid/aoc2/Runner.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mschneid/aoc3/AdventOfCode3.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
