@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AdventOfCode5Test {
 
-    AdventOfCode5 sut;
+    private AdventOfCode5 sut;
 
     @BeforeEach
     public void setUp() {
