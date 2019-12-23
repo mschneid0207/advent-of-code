@@ -64,7 +64,7 @@ public class Runner {
                 aoc.executeProgram(codes, position, params, output, finishState);
 
                 if (finishState.get() == 99) {
-                    System.out.println("FINISH: " + i);
+                    // we leave the for loop, the last output is our signal
                     break;
                 }
 
@@ -74,6 +74,7 @@ public class Runner {
                     loopMode = true;
                 }
             }
+            // set the greater of the two values
             maxThrusterSignal.set(Math.max(output.get(), maxThrusterSignal.get()));
 
         });
