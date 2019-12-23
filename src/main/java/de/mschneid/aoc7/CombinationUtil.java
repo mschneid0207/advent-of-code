@@ -1,43 +1,70 @@
 package de.mschneid.aoc7;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CombinationUtil {
 
-    /* arr[]  ---> Input Array
-   data[] ---> Temporary array to store current combination
-   start & end ---> Staring and Ending indexes in arr[]
-   index  ---> Current index in data[]
-   r ---> Size of a combination to be printed */
-    static void combinationUtil(int arr[], int data[], int start,
-                                int end, int index, int r)
-    {
-        // Current combination is ready to be printed, print it
-        if (index == r)
-        {
-            for (int j=0; j<r; j++)
-                System.out.print(data[j]+" ");
-            System.out.println("");
-            return;
-        }
+    public static void printAllRecursive(int n, int[] elements, List<int[]> combinations) {
 
-        // replace index with all possible elements. The condition
-        // "end-i+1 >= r-index" makes sure that including one element
-        // at index will make a combination with remaining elements
-        // at remaining positions
-        for (int i=start; i<=end && end-i+1 >= r-index; i++)
-        {
-            data[index] = arr[i];
-            combinationUtil(arr, data, i+1, end, index+1, r);
+        if(n == 1) {
+            combinations.add(elements.clone());
+        } else {
+            for(int i = 0; i < n-1; i++) {
+                printAllRecursive(n - 1, elements, combinations);
+                if(n % 2 == 0) {
+                    swap(elements, i, n-1);
+                } else {
+                    swap(elements, 0, n-1);
+                }
+            }
+            printAllRecursive(n - 1, elements, combinations);
         }
     }
 
-    // The main function that prints all combinations of size r
-    // in arr[] of size n. This function mainly uses combinationUtil()
-    static void printCombination(int arr[], int n, int r)
-    {
-        // A temporary array to store all combination one by one
-        int data[]=new int[r];
 
-        // Print all combination using temprary array 'data[]'
-        combinationUtil(arr, data, 0, n-1, 0, r);
+    private static void swap(int[] input, int a, int b) {
+        int tmp = input[a];
+        input[a] = input[b];
+        input[b] = tmp;
+    }
+
+
+    private static void printArray(int[] input) {
+        System.out.print('\n');
+        for(int i = 0; i < input.length; i++) {
+            System.out.print(input[i]);
+        }
+    }
+
+
+    public static List<int[]> getCombinations(List<Integer> firstPhaseList) {
+        List<int[]> combinations = new ArrayList<>();
+        for (int i = 0; i < firstPhaseList.size(); i++) {
+            List<Integer> secondPhaseList = new ArrayList<>(firstPhaseList);
+            Integer firstPhase = firstPhaseList.get(i);
+            secondPhaseList.remove(firstPhase);
+            for (int j = 0; j < secondPhaseList.size(); j++) {
+                List<Integer> thirdPhaseList = new ArrayList<>(secondPhaseList);
+                Integer secondPhase = secondPhaseList.get(j);
+                thirdPhaseList.remove(secondPhase);
+                for (int k = 0; k < thirdPhaseList.size(); k++) {
+                    List<Integer> fourthPhaseList = new ArrayList<>(thirdPhaseList);
+                    Integer thirdPhase = thirdPhaseList.get(k);
+                    fourthPhaseList.remove(thirdPhase);
+                    for (int l = 0; l < fourthPhaseList.size(); l++) {
+                        List<Integer> fifthPhaseList = new ArrayList<>(fourthPhaseList);
+                        Integer fourthPhase = fourthPhaseList.get(l);
+                        fifthPhaseList.remove(fourthPhase);
+                        for (int m = 0; m < fifthPhaseList.size(); m++) {
+                            Integer fifthPhase = fifthPhaseList.get(m);
+                            int[] combination = {firstPhase, secondPhase, thirdPhase, fourthPhase, fifthPhase};
+                            combinations.add(combination);
+                        }
+                    }
+                }
+            }
+        }
+        return combinations;
     }
 }

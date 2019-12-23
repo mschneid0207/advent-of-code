@@ -10,64 +10,72 @@ public class AdventOfCode7 {
 
     private int firstParam = 0;
     private int secondParam = 0;
-    private int inputCounter = 0;
+    private int inputParamPosition = 0;
 
-    public void resetProgram() {
-        firstParam = 0;
-        secondParam = 0;
-        inputCounter = 0;
+    public void resetInputParamPosition() {
+        inputParamPosition = 0;
     }
 
-    public void executeProgram(int[] codes, int position, int[] inputParams, AtomicInteger output) {
-        int opCode = codes[position];
+    public void setInputParamPositionToSecondParam() {
+        inputParamPosition = 1;
+    }
+
+    public void executeProgram(int[] codes, AtomicInteger position, int[] inputParams, AtomicInteger output, AtomicInteger finishState) {
+        boolean outputChanged = false;
+        int opCode = codes[position.get()];
         if (opCode == 99) {
+            finishState.set(99);
             return;
         }
         // init operations
         OperationMode opMode = determineOpCode(opCode);
         int[] modes = determineParameterMode(opCode);
-        determineParams(codes, position, opMode, modes);
+        determineParams(codes, position.get(), opMode, modes);
 
         switch (opMode) {
             case ADD:
-                add(codes, position, firstParam, secondParam);
-                position = position + 4;
+                add(codes, position.get(), firstParam, secondParam);
+                position.set(position.get() + 4);
                 break;
             case MULTIPLY:
-                multiply(codes, position, firstParam, secondParam);
-                position = position + 4;
+                multiply(codes, position.get(), firstParam, secondParam);
+                position.set(position.get() + 4);
                 break;
             case INPUT:
-                input(codes, position, inputParams[inputCounter]);
-                position = position + 2;
-                inputCounter++;
+                input(codes, position.get(), inputParams[inputParamPosition]);
+                position.set(position.get() + 2);
+                inputParamPosition++;
                 break;
             case OUTPUT:
-                output(codes, position, modes, output);
-                position = position + 2;
+                output(codes, position.get(), modes, output);
+                position.set(position.get() + 2);
+                outputChanged = true;
                 break;
             case JUMP_IF_TRUE:
-                position = calcPositionForJumpIsTrue(codes, position, firstParam, secondParam);
+                position.set(calcPositionForJumpIsTrue(codes, position.get(), firstParam, secondParam));
                 break;
             case JUMP_IF_FALSE:
-                position = calcPositionForJumpIsFalse(codes, position, firstParam, secondParam);
+                position.set(calcPositionForJumpIsFalse(codes, position.get(), firstParam, secondParam));
                 break;
             case LESS_THAN:
                 boolean isLessThan = isFirstParamLessThanSecondParam(firstParam, secondParam);
-                int thirdPos = codes[position + 3];
+                int thirdPos = codes[position.get() + 3];
                 codes[thirdPos] = isLessThan ? 1 : 0;
-                position = position + 4;
+                position.set(position.get() + 4);
                 break;
             case EQUALS:
                 boolean isEquals = isFirstParamEqualsSecondParam(firstParam, secondParam);
-                int thirdPos2 = codes[position + 3];
+                int thirdPos2 = codes[position.get() + 3];
                 codes[thirdPos2] = isEquals ? 1 : 0;
-                position = position + 4;
+                position.set(position.get() + 4);
                 break;
             default:
                 return;
         }
-        executeProgram(codes, position, inputParams, output);
+        if (outputChanged) {
+            return;
+        }
+        executeProgram(codes, position, inputParams, output, finishState);
     }
 
 

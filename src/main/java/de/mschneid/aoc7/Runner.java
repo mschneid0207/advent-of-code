@@ -7,17 +7,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static java.lang.String.format;
+
 public class Runner {
 
     public static void main(String[] args) throws Exception {
-        final AtomicInteger maxThrusterSignal = new AtomicInteger(0);
-
         AdventOfCode7 aoc = new AdventOfCode7();
         String line = FileReader.readLine("aoc7-data.txt");
+        System.out.println(format("Max thruster signal: %s", determineMaxThrusterSignal(line, aoc)));
+        System.out.println(format("Max thruster signal with loop: %s", determineMaxThrusterSignalWithLoop(line, aoc)));
+    }
 
-
-        List<int[]> combinations = getCombinations2();
-
+    private static AtomicInteger determineMaxThrusterSignal(String line, AdventOfCode7 aoc) {
+        AtomicInteger maxThrusterSignal = new AtomicInteger(0);
+        List<int[]> combinations = new ArrayList<>();
+        int[] phases = {0,1,2,3,4};
+        CombinationUtil.printAllRecursive(5, phases, combinations);
 
         combinations.forEach(phaseSettings -> {
             AtomicInteger output = new AtomicInteger(0);
@@ -25,68 +30,54 @@ public class Runner {
                 // reset codes
                 int[] codes = resetCodes(line);
                 int[] params = {phaseSettings[i], output.get()};
-                aoc.resetProgram();
-                aoc.executeProgram(codes, 0, params, output);
+                aoc.resetInputParamPosition();
+                aoc.executeProgram(codes, new AtomicInteger(0), params, output, null);
             }
-            System.out.println("current max thruster signal: " + maxThrusterSignal.get());
-            System.out.println("output: " + output.get());
             maxThrusterSignal.set(Math.max(output.get(), maxThrusterSignal.get()));
-            System.out.println("new max thruster signal: " + maxThrusterSignal.get());
 
         });
-        //aoc.executeProgram(codes, 0, null  );
-        System.out.println(maxThrusterSignal.get());
-
+        return maxThrusterSignal;
     }
 
-    private static List<int[]> getCombinations() {
+    private static AtomicInteger determineMaxThrusterSignalWithLoop(String line, AdventOfCode7 aoc) {
+        AtomicInteger maxThrusterSignal = new AtomicInteger(0);
         List<int[]> combinations = new ArrayList<>();
-        List<Integer> values = Arrays.asList(0, 1, 2, 3, 4);
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                for (int k = 0; k < 5; k++) {
-                    for (int l = 0; l < 5; l++) {
-                        for (int m = 0; m < 5; m++) {
-                            int[] combination = {i, j, k, l, m};
-                            combinations.add(combination);
-                        }
-                    }
+        int[] phases = {5,6,7,8,9};
+        CombinationUtil.printAllRecursive(5, phases, combinations);
+
+        combinations.forEach(phaseSettings -> {
+            AtomicInteger output = new AtomicInteger(0);
+            AtomicInteger finishState = new AtomicInteger(0);
+            boolean loopMode = false;
+            List<int[]> codeList = Arrays.asList(resetCodes(line), resetCodes(line), resetCodes(line), resetCodes(line), resetCodes(line));
+            List<AtomicInteger> positions = Arrays.asList(new AtomicInteger(0), new AtomicInteger(0), new AtomicInteger(0), new AtomicInteger(0), new AtomicInteger(0));
+
+            for (int i = 0; i < phaseSettings.length; i++) {
+                int[] codes = codeList.get(i);
+                AtomicInteger position = positions.get(i);
+                int[] params = {phaseSettings[i], output.get()};
+                if (loopMode) {
+                    aoc.setInputParamPositionToSecondParam();
+                } else {
+                    aoc.resetInputParamPosition();
+                }
+                aoc.executeProgram(codes, position, params, output, finishState);
+
+                if (finishState.get() == 99) {
+                    System.out.println("FINISH: " + i);
+                    break;
+                }
+
+                if (i == phaseSettings.length -1 ) {
+                    // loop
+                    i = -1;
+                    loopMode = true;
                 }
             }
-        }
-        return combinations;
-    }
+            maxThrusterSignal.set(Math.max(output.get(), maxThrusterSignal.get()));
 
-    private static List<int[]> getCombinations2() {
-        List<int[]> combinations = new ArrayList<>();
-        List<Integer> firstPhaseList = Arrays.asList(0, 1, 2, 3, 4);
-        for (int i = 0; i < firstPhaseList.size(); i++) {
-            List<Integer> secondPhaseList = new ArrayList<>(firstPhaseList);
-            Integer firstPhase = firstPhaseList.get(i);
-            secondPhaseList.remove(firstPhase);
-            for (int j = 0; j < secondPhaseList.size(); j++) {
-                List<Integer> thirdPhaseList = new ArrayList<>(secondPhaseList);
-                Integer secondPhase = secondPhaseList.get(j);
-                thirdPhaseList.remove(secondPhase);
-                for (int k = 0; k < thirdPhaseList.size(); k++) {
-                    List<Integer> fourthPhaseList = new ArrayList<>(thirdPhaseList);
-                    Integer thirdPhase = thirdPhaseList.get(k);
-                    fourthPhaseList.remove(thirdPhase);
-                    for (int l = 0; l < fourthPhaseList.size(); l++) {
-                        List<Integer> fifthPhaseList = new ArrayList<>(fourthPhaseList);
-                        Integer fourthPhase = fourthPhaseList.get(l);
-                        fifthPhaseList.remove(fourthPhase);
-                        for (int m = 0; m < fifthPhaseList.size(); m++) {
-                            Integer fifthPhase = fifthPhaseList.get(m);
-                            int[] combination = {firstPhase, secondPhase, thirdPhase, fourthPhase, fifthPhase};
-                            combinations.add(combination);
-                        }
-                    }
-                }
-            }
-        }
-
-        return combinations;
+        });
+        return maxThrusterSignal;
     }
 
     private static int[] resetCodes(String lineOfCodes) {
