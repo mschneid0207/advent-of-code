@@ -34,7 +34,7 @@ public class AoC7Runner {
                                 .trim();
                         int index = innerBag.indexOf(" ");
                         String quantity = innerBag.substring(0, index);
-                        String bagName = innerBag.substring(index + 1, innerBag.length());
+                        String bagName = innerBag.substring(index + 1);
                         System.out.println("BagName: " + bagName + "; Quantity: " + quantity);
                         if (!quantity.equals("no")) {
                             bagInfos.add(new Bag(bagName, parseInt(quantity)));
