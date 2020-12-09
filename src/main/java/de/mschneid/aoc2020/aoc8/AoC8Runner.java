@@ -14,7 +14,7 @@ import static java.lang.Integer.parseInt;
 public class AoC8Runner {
 
     public static void main(String[] args) {
-        List<String> puzzleLines = FileReader.readLines("aoc8-2020-data.txt");
+        List<String> puzzleLines = FileReader.readLines("aoc2020/aoc8-data.txt");
 
        /* Map<String, String> instructionsMap = puzzleLines.stream()
                 .map(x -> x.split(" "))

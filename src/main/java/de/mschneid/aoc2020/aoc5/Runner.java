@@ -1,22 +1,15 @@
 package de.mschneid.aoc2020.aoc5;
 
 import de.mschneid.util.FileReader;
-import lombok.Builder;
-import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static java.lang.Integer.parseInt;
-import static java.util.Arrays.asList;
 
 public class Runner {
 
     public static void main(String[] args) {
-        List<String> binaries = FileReader.readLines("aoc5-2020-data-test.txt");
+        List<String> binaries = FileReader.readLines("aoc2020/aoc5-data-test.txt");
 
         Day5 day5 = new Day5();
         // part 1

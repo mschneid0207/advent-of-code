@@ -18,7 +18,7 @@ import static java.lang.Integer.parseInt;
 public class AoC7Runner {
 
     public static void main(String[] args) {
-        List<String> puzzleLines = FileReader.readLines("aoc7-2020-data.txt");
+        List<String> puzzleLines = FileReader.readLines("aoc2020/aoc7-data.txt");
 
         Map<String, String[]> roughBagsMap = puzzleLines.stream()
                 .map(puzzleLine -> puzzleLine.split("bags contain"))

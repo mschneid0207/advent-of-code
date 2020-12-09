@@ -5,12 +5,11 @@ import de.mschneid.util.FileReader;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Runner {
 
     public static void main (String[] args) {
-        List<String> lines = FileReader.readLines("aoc3-2020-data.txt");
+        List<String> lines = FileReader.readLines("aoc2020/aoc3-data.txt");
 
         int[][] slopes = new int[][]{{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1,2}};
 

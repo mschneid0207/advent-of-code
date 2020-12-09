@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Runner {
 
     public static void main(String[] args) {
-        List<String> passwords = FileReader.readLines("aoc2-2020-data.txt");
+        List<String> passwords = FileReader.readLines("aoc2020/aoc2-data.txt");
         Pattern p = Pattern.compile("-?\\d+");
 
         List<String[]> rules = passwords.stream()

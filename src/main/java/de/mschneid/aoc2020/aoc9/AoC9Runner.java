@@ -12,7 +12,7 @@ import static java.lang.Long.parseLong;
 public class AoC9Runner {
 
     public static void main(String[] args) {
-        List<String> puzzleLines = FileReader.readLines("aoc9-2020-data.txt");
+        List<String> puzzleLines = FileReader.readLines("aoc2020/aoc9-data.txt");
 
         List<Long> numberList = puzzleLines.stream()
                 .map(x -> parseLong(x))

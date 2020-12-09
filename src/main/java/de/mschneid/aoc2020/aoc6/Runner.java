@@ -7,7 +7,7 @@ import java.util.*;
 public class Runner {
 
     public static void main(String[] args) {
-        List<String> puzzleLines = FileReader.readLines("aoc6-2020-data.txt");
+        List<String> puzzleLines = FileReader.readLines("aoc2020/aoc6-data.txt");
 
         puzzleLines.forEach(x -> System.out.println(x));
 

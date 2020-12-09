@@ -4,7 +4,6 @@ import de.mschneid.util.FileReader;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +13,7 @@ import static java.util.Arrays.asList;
 public class Runner {
 
     public static void main(String[] args) {
-        List<String> lines = FileReader.readLines("aoc4-2020-data.txt");
+        List<String> lines = FileReader.readLines("aoc2020/aoc4-data.txt");
 
         lines.forEach(x -> System.out.println(x));
         System.out.println(lines.size());
