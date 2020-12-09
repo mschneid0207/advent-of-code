@@ -4,71 +4,76 @@ import de.mschneid.util.FileReader;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.lang.Long.parseLong;
 
 public class AoC9Runner {
 
     public static void main(String[] args) {
         List<String> puzzleLines = FileReader.readLines("aoc9-2020-data.txt");
 
-        int limit = 5;
+        List<Long> numberList = puzzleLines.stream()
+                .map(x -> parseLong(x))
+                .collect(Collectors.toList());
+
+        int limit = 25;
         int index = 0;
 
-        List<Long> numberList = new ArrayList<>();
-        for (String line : puzzleLines) {
-            numberList.add(Long.parseLong(line));
-        }
-
-        boolean isValid = true;
-        while (isValid) {
-            long numberToCheck = numberList.get(index + limit);
-            System.out.println("numberToCheck: " + numberToCheck);
-            List<Long> previousNumberListCombinations = getPreviousNumberListCombinations(limit, index, numberList);
-            previousNumberListCombinations.forEach(x -> System.out.println(x));
-            if (previousNumberListCombinations.contains(numberToCheck)) {
-                index++;
-                System.out.println(numberToCheck + " was correct;");
-            } else {
-                isValid = false;
-                System.out.println(numberToCheck + " was incorrect;");
-            }
-        }
+        // part1
+        long resultPart1 = solvePart1(limit, index, numberList);
+        System.out.println("Part1: " + resultPart1);
 
         // part2
         index = 0;
-        long error = 133015568;
-        boolean isValidPart2 = false;
-        while (!isValidPart2) {
-            isValidPart2 = getCorrectCombination(index, numberList, error);
+        boolean isValid = false;
+        while (!isValid) {
+            isValid = getCorrectCombination(index, numberList, resultPart1);
             index++;
         }
 
     }
 
-    private static boolean getCorrectCombination(int index, List<Long> numberList, long error) {
+    private static long solvePart1(int limit, int index, List<Long> numberList) {
+        boolean isValid = true;
+        while (isValid) {
+            long numberToCheck = numberList.get(index + limit);
+            List<Long> previousNumberListCombinations = getPreviousNumberListCombinations(limit, index, numberList);
+            if (previousNumberListCombinations.contains(numberToCheck)) {
+                index++;
+                //System.out.println(numberToCheck + " was correct;");
+            } else {
+                System.out.println(numberToCheck + " was incorrect;");
+                return numberToCheck;
+            }
+        }
+        return 0;
+    }
+
+    private static boolean getCorrectCombination(int index, List<Long> numberList, long incorretNumber) {
         List<Long> numbers = new ArrayList<>();
         long sum = 0;
-        boolean isValid = false;
+        boolean wasFound = false;
         for (int i = index; i < numberList.size(); i++) {
             long num = numberList.get(i);
             numbers.add(num);
-            sum = sum + num;
-            if (sum == error) {
-                isValid = true;
+            sum += num;
+            if (sum == incorretNumber) {
+                wasFound = true;
                 break;
             }
-            if (sum > error) {
-                System.out.println("Break sum is: " + sum);
+            if (sum > incorretNumber) {
                 break;
             }
         }
-        if (isValid) {
+
+        if (wasFound) {
             long min = Collections.min(numbers);
             long max = Collections.max(numbers);
-            System.out.println(min + max);
+            System.out.println("Part2: " + (min + max));
         }
-        return isValid;
+        return wasFound;
     }
 
 
@@ -80,7 +85,6 @@ public class AoC9Runner {
             }
         }
         return previousNumbers;
-
     }
 
 
