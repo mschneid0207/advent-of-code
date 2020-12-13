@@ -28,9 +28,6 @@ public class AoC10Runner {
 
         adapters.forEach(x -> System.out.println(x));
 
-        Day10 day10 = new Day10();
-        long arrangements = day10.getArrangements(adapters);
-        System.out.println(arrangements);
 
         int inputAdapter = 0;
         List<Integer> adaptersToCheck = new ArrayList<>();
