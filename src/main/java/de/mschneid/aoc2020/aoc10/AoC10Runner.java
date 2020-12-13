@@ -14,8 +14,10 @@ import java.util.stream.Collectors;
 
 public class AoC10Runner {
 
+    static List<Integer> ignoreList = new ArrayList<>();
+
     public static void main(String[] args) {
-        List<String> puzzleLines = FileReader.readLines("aoc2020/aoc10-data-test.txt");
+        List<String> puzzleLines = FileReader.readLines("aoc2020/aoc10-data-test2.txt");
 
         List<Integer> adapters = puzzleLines.stream()
                 .map(x -> Integer.parseInt(x))
@@ -52,9 +54,9 @@ public class AoC10Runner {
 
         for (int i = 0; i < adapters.size() - 1; i++) {
             Integer adapter = adapters.get(i);
-            solvePart2(adapter, adapters, result);
+            solvePar2Fast(adapter, adapters, result);
         }
-        System.out.println(result.getCombinations().size());
+        System.out.println(result.counter);
     }
 
 
@@ -64,7 +66,7 @@ public class AoC10Runner {
         if (adapters.contains(adapterDiff1)) {
             int value = result.getAdapterDifference1() + 1;
             result.setAdapterDifference1(value);
-            System.out.println("add 1 for " + inputAdapter);
+            //System.out.println("add 1 for " + inputAdapter);
             return;
         }
         int adapterDiff2 = inputAdapter + 2;
@@ -77,8 +79,47 @@ public class AoC10Runner {
         if (adapters.contains(adapterDiff3)) {
             int value = result.getAdapterDifference3() + 1;
             result.setAdapterDifference3(value);
-            System.out.println("add 3 for " + inputAdapter);
+            //System.out.println("add 3 for " + inputAdapter);
             return;
+        }
+
+    }
+
+    static void solvePar2Fast(int inputAdapter, List<Integer> adapters, Result result) {
+        if (ignoreList.contains(inputAdapter)) {
+            System.out.println("Adapter is ignored: " + inputAdapter);
+            return;
+        }
+        int counter = 0;
+        int adapterDiff1 = inputAdapter + 1;
+        if (adapters.contains(adapterDiff1)) {
+            int value = result.getAdapterDifference1() + 1;
+            result.setAdapterDifference1(value);
+            System.out.println("add 1 for " + inputAdapter);
+            counter++;
+        }
+        int adapterDiff2 = inputAdapter + 2;
+        if (adapters.contains(adapterDiff2)) {
+            int value = result.getAdapterDifference2() + 1;
+            result.setAdapterDifference2(value);
+            counter++;
+        }
+        int adapterDiff3 = inputAdapter + 3;
+        if (adapters.contains(adapterDiff3)) {
+            int value = result.getAdapterDifference3() + 1;
+            result.setAdapterDifference3(value);
+            System.out.println("add 3 for " + inputAdapter);
+            counter++;
+        }
+        if (counter == 2) {
+            System.out.println("Multiply 2 " + inputAdapter);
+            result.setCounter(result.counter * 2);
+        }
+        if (counter == 3) {
+            ignoreList.add(adapterDiff1);
+            ignoreList.add(adapterDiff2);
+            System.out.println("Multiply 4 " + inputAdapter);
+            result.setCounter(result.counter * 4);
         }
 
     }
@@ -140,6 +181,7 @@ public class AoC10Runner {
         private int adapterDifference3 = 0;
         private List<Integer> checkedAdapters = new ArrayList<>();
         private List<Integer[]> combinations = new ArrayList<>();
+        private int counter = 1;
     }
 
     @Data
